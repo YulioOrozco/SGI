@@ -1,0 +1,56 @@
+{% extends "App_SistemaGestionInventario/monitor/plantilla_base_monitor.html" %}
+
+
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/calendario_monitor_style.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+
+    <!-- Contenido principal -->
+    <main>
+        <h1>Calendario Interactivo</h1>
+        <div class="contendor-principal">
+            <!-- Formulario para filtrar materiales -->
+            <div class="formulario-crear-material" id="crear-materialForm">     
+                
+                <div class="filtro">
+                    <br>
+                    <label for="fecha">Fecha:</label>
+                    <input type="month" id="fecha" value="2023-01">
+                    <button onclick="generarCalendario()">Generar Calendario</button>
+                </div>
+
+                <div class="contenido">
+                    
+                    <div class="contenedor-calendario-ventana" id="contenedorCalendario"></div>
+
+
+                    <div class="ventana">
+                        
+                        <div class="contenedor-tipos"> 
+                            <div class="circulo active"></div>
+                            <h6>Consumibles</h6>                    
+                        </div>
+                        <div class="contenedor-tipos"> 
+                            <div class="circulo inactive"></div>
+                            <h6>Devolutivos</h6>                        
+                        </div>
+                        <button class="boton-filtro">Registrar Préstamo</button>
+                    </div>
+                    
+                </div>
+            </div>  
+        </div>   
+
+    <br>
+    </main>
+
+    <script src="{% static "App_SistemaGestionInventario/js/calendario_monitor_script.js" %}"></script>
+
+{% endblock content %}

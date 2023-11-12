@@ -1,0 +1,116 @@
+{% extends "App_SistemaGestionInventario/instructor_planta/base_instructor_planta.html" %}
+
+{% load static %}
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/generar_reporte_planta_style.css' %}">
+    {% endblock css %}
+
+
+{% block content %}
+
+    <main>
+        <div class="garan">
+            <div class="garan2">
+                <img src="{% static 'App_SistemaGestionInventario/img/reportes.jpg' %}" alt="imagen.png">
+            </div>
+            <h2>Descargar reporte</h2>
+            
+        </div>  
+        <p>Descargar un reporte en PDF y Excel, permite guardar, compartir y acceder a información de manera versátil y segura.</p>
+        <form method="post" class="formulario-crear-material" id="crear-materialForm">            
+            {% csrf_token %}
+            <div class="contenedor-desplegable-documento">                
+                <label for="select_tipo_elemento">Seleccione la razón:</label>
+                <select name="tipo_elemento" id="select_tipo_elemento">
+                    <option value="opcion1">Optimización de Inventario</option>
+                    <option value="opcion2">Seguimiento del Uso y Desperdicio</option>
+                    <option value="opcion3">Análisis de Tendencias de Consumo</option>                    
+                    <option value="opcion4">Otra</option>
+                </select>
+            </div>
+            <h2>Reporte de Materiales</h2>
+            <div class="contenedor-desplegable-documento">
+                <label for="select_periodicidad">Seleccione la periodicidad: </label>
+                <select name="periodicidad" id="select_periodicidad">
+                    <option value="opcion1">Diario</option>
+                    <option value="opcion2">Semanal</option>
+                    <option value="opcion3">Mensual</option>
+                    <option value="opcion4">Trimestral</option>
+                    <option value="opcion5">Semestral</option>
+                    <option value="opcion6">Anual</option>
+                    <option value="opcion7">Bianual</option>
+                    <option value="opcion8">Trienal</option>
+                    <option value="opcion9">Cuatrienal</option>
+                    <option value="opcion10">Quinquenal</option>
+                    <option value="opcion11">Todo</option>                    
+                </select>
+            </div>                
+            
+            <div class="boton">
+                <button type="submit" formaction="{% url 'generar_reporte_pdf' %}" name="generar_pdf">Generar Reporte en PDF</button>
+                <button type="submit" formaction="{% url 'generar_excel' %}" name="generar_excel">Generar Reporte en Excel</button>
+            </div>              
+        </form>
+
+
+        <br><br>
+
+        <form method="post" class="formulario-crear-material" id="crear-materialForm">            
+            {% csrf_token %}
+            
+            <center><h2>Reporte de Materiales Devolutivos en Préstamo</h2></center>
+                        
+            
+            <div class="boton">                
+                <button type="submit" formaction="{% url 'generar_excel_prestamo' %}" name="generar_excel_prestamo">Generar Reporte en Excel</button>
+            </div>              
+        </form>
+
+        <br><br>
+
+        <form method="post" class="formulario-crear-material" id="crear-materialForm">            
+            {% csrf_token %}
+            
+            <center><h2>Reporte de Materiales Consumibles Otorgados</h2></center>
+                        
+            
+            <div class="boton">                
+                <button type="submit" formaction="{% url 'generar_excel_consumible' %}" name="generar_excel_consumible">Generar Reporte en Excel</button>
+            </div>              
+        </form>
+
+
+        <br><br>
+
+        <form method="post" class="formulario-crear-material" id="crear-materialForm">            
+            {% csrf_token %}
+            
+            <center><h2>Reporte de Internautas de Actividades y Comportamiento</h2></center>
+                                                
+            <div class="boton">                
+                <button type="submit" formaction="{% url 'generar_excel_clientes' %}" name="generar_excel_clientes">Generar Reporte en Excel</button>
+            </div>              
+        </form>
+
+
+        <br><br>
+
+
+        <form method="post" class="formulario-crear-material" id="crear-materialForm">            
+            {% csrf_token %}
+            
+            <center><h2>Perfil de Usuario, Detalles, Actividad y Resumen</h2></center>
+            
+                                    
+            <div class="boton">                
+                <button type="submit" formaction="{% url 'generar_excel_usuario' %}" name="generar_excel_usuario">Generar Reporte en Excel</button>
+            </div>              
+        </form>
+
+        <br><br>
+
+
+    </main>
+
+{% endblock content %}

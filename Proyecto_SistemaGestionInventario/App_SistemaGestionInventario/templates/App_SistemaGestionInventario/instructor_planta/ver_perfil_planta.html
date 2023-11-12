@@ -1,0 +1,57 @@
+{% extends "App_SistemaGestionInventario/instructor_planta/base_instructor_planta.html" %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'App_SistemaGestionInventario/css/ver_perfil_planta_style.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<main>
+    <h2>Datos personales</h2> <!-- Título del formulario -->
+    <form action="" class="formulario-crear-material" id="crear-materialForm">
+    
+        <input type="text" name="nombre_completo" placeholder="Primer nombre">
+        <input type="text" name="nombre_completo" placeholder="Segundo Nombre">
+        <input type="text" name="nombre_completo" placeholder="Primer Apellido">
+        <input type="text" name="nombre_completo" placeholder="Segundo Apellido">
+        
+        <div class="contenedor-desplegable-documento">
+            <label for="">Tipo de identificación:</label>
+            <select name="tipo_documento" placeholder="Tipo de Identificacion">
+                    <option value="">C.C</option>
+                    <option value="">T.I</option>                        
+                    <option value="">P.E.P</option>
+                    <option value="">C.E</option>
+                    <option value="">P.A</option>
+                    <option value="">C.D</option>
+                    <option value="">P.E</option>
+            </select>
+        </div>
+        <input type="text" name="numero_identificacion" placeholder="Numero de Identificacion">                                                            
+        <input type="text" name="correo_misena" placeholder="Correo Mi SENA">
+        <input type="text" name="correo_sena" placeholder="Correo Sena">
+        <input type="text" name="numero_telefono" placeholder="Numero de Telefono">                                                
+        <input type="text" name="residencia" placeholder="Residencia">                                        
+        <input type="text" name="contraseña" placeholder="Contraseña">
+
+        
+
+        <div class="contenedor-desplegable-documento">
+            <label for="">Rol:</label>
+            <select name="tipo_documento" placeholder="Rol">
+                <option value="">Instructor Planta</option>
+                <option value="">Instructor Contratista</option>                        
+                <option value="">Monitor</option>                
+            </select>
+        </div>
+
+
+        <div class="boton">
+            <button type="submit">Editar Perfil</button>
+        </div>  
+    </form>     
+</main>
+
+{% endblock content %}
